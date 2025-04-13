@@ -6,7 +6,7 @@ export class VehiclesController {
         {
             manufacturer: "Renault",
             model: "Clio 5",
-            year: 2022,
+            year: 2023,
             type: "Sedan",
             price: 79900,
             fuelType: "Essence",
@@ -81,7 +81,7 @@ export class VehiclesController {
         {
             manufacturer: "Dacia",
             model: "Jogger 7 Places",
-            year: 2022,
+            year: 2021,
             type: "Monospace",
             price: 199900,
             fuelType: "Diesel",
@@ -126,7 +126,7 @@ export class VehiclesController {
         {
             manufacturer: "Dacia",
             model: "Lodgy Stepway 7 Places",
-            year: 2022,
+            year: 2023,
             type: "Monospace",
             price: 159900,
             fuelType: "Essence",
