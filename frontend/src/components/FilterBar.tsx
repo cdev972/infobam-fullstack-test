@@ -3,6 +3,8 @@
 
 import { useState } from 'react';
 
+// Définition des props que ce composant reçoit depuis le parent
+// Chaque champ correspond à un filtre actif, avec sa valeur et sa fonction de mise à jour
 interface FilterBarProps {
     manufacturer: string;
     setManufacturer: (manufacturer: string) => void;
@@ -16,6 +18,7 @@ interface FilterBarProps {
     setYear: (year: string) => void;
 }
 
+// Composant d'affichage de la barre de filtres (desktop et mobile)
 export default function FilterBar({
     manufacturer,
     setManufacturer,
@@ -28,8 +31,11 @@ export default function FilterBar({
     year,
     setYear,
 }: FilterBarProps) {
+
+    // État pour gérer l'ouverture du panneau mobile
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    // Fonction qui inverse l’état d'ouverture du menu mobile
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     };

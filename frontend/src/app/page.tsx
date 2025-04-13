@@ -6,6 +6,9 @@ import CarCard from '../components/CarCard';
 import FilterBar from '../components/FilterBar';
 import Footer from '../components/Footer';
 
+/**
+* Interface définissant la structure d'un objet voiture
+*/
 interface Car {
   manufacturer: string;
   model: string;
@@ -22,7 +25,12 @@ interface Car {
   updatedAt: Date;
 }
 
+ /**
+  * Gère l'affichage et le filtrage de la liste des véhicules
+  */
 export default function Home() {
+
+  // États pour stocker les données des voitures et les critères de filtrage
   const [cars, setCars] = useState<Car[]>([]);
   const [manufacturer, setManufacturer] = useState<string>('');
   const [model, setModel] = useState<string>('');
@@ -30,6 +38,10 @@ export default function Home() {
   const [fuelType, setFuelType] = useState<string>('');
   const [year, setYear] = useState<string>('');
 
+  /**
+   * Effect qui s'exécute au chargement du composant
+   * Récupère les données des véhicules depuis l'API backend
+   */
   useEffect(() => {
     axios
       .get('http://localhost:3000/api/cars')
@@ -37,19 +49,26 @@ export default function Home() {
       .catch((err) => console.error(err));
   }, []);
 
+  /**
+  * Filtre les voitures selon les critères sélectionnés par l'utilisateur
+  */
   const filteredCars = cars.filter((car) => {
     
+    // Vérification de correspondance pour chaque critère de filtrage
     const manufacturerMatch = !manufacturer || car.manufacturer?.toLowerCase().includes(manufacturer.toLowerCase());
     const modelMatch = !model || car.model?.toLowerCase().includes(model.toLowerCase());
     const typeMatch = !type || car.type?.toLowerCase().includes(type.toLowerCase());
     const fuelTypeMatch = !type || car.fuelType?.toLowerCase().includes(fuelType.toLowerCase());
     const yearMatch = !year || car.year.toString().includes(year);
 
+    // Retourne true seulement si tous les critères sont satisfaits
     return manufacturerMatch && modelMatch && typeMatch && fuelTypeMatch && yearMatch;
   });
 
   return (
     <div className="relative min-h-screen">
+
+      {/* Barre de filtres avec les critères */}
       <FilterBar
         manufacturer={manufacturer}
         setManufacturer={setManufacturer}
@@ -63,11 +82,14 @@ export default function Home() {
         setYear={setYear}
       />
 
+      {/* Grille flexible affichant les cartes de véhicules filtrées */}
       <div className="flex flex-wrap gap-4 justify-center p-4 pt-16 md:pt-28 pb-16 mb-12">
         {filteredCars.map((car, idx) => (
           <CarCard key={idx} car={car} />
         ))}
       </div>
+      
+      {/* Pied de page de l'application */}
       <Footer />
     </div>
   );

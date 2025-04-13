@@ -33,7 +33,7 @@ Le frontend sera disponible sur [http://localhost:3001](http://localhost:3001)
 ## Fonctionnalités
 
 - Affichage d'une liste de véhicules
-- Filtrage par année et constructeur
+- Filtrage (par fabricant, modèle, type, carburant et année)
 - Design responsive (mobile, tablette, desktop)
 
 ## Technologies utilisées

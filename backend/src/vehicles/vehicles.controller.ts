@@ -1,7 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
 
+/**
+ * Contrôleur pour la gestion des voitures
+ */
 @Controller('api/cars')
 export class VehiclesController {
+    /**
+     * Tableau des véhicules disponibles (données mockées pour le développement).
+     */
     private cars = [
         {
             manufacturer: "Renault",
@@ -140,8 +146,13 @@ export class VehiclesController {
         }
     ];
 
+    /**
+    * Endpoint GET pour récupérer tous les véhicules
+    * @returns Un tableau contenant tous les véhicules disponibles
+    */
     @Get()
     getCars() {
+        // Retourne directement le tableau de véhicules
         return this.cars;
     }
 }
