@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import CarCard from '../components/CarCard';
 import FilterBar from '../components/FilterBar';
+import Footer from '../components/Footer';
 
 interface Car {
   manufacturer: string;
@@ -67,7 +68,7 @@ export default function Home() {
           <CarCard key={idx} car={car} />
         ))}
       </div>
-
+      <Footer />
     </div>
   );
 }
