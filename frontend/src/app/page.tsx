@@ -58,7 +58,7 @@ export default function Home() {
     const manufacturerMatch = !manufacturer || car.manufacturer?.toLowerCase().includes(manufacturer.toLowerCase());
     const modelMatch = !model || car.model?.toLowerCase().includes(model.toLowerCase());
     const typeMatch = !type || car.type?.toLowerCase().includes(type.toLowerCase());
-    const fuelTypeMatch = !type || car.fuelType?.toLowerCase().includes(fuelType.toLowerCase());
+    const fuelTypeMatch = !fuelType || car.fuelType?.toLowerCase().includes(fuelType.toLowerCase());
     const yearMatch = !year || car.year.toString().includes(year);
 
     // Retourne true seulement si tous les critères sont satisfaits
